@@ -1,0 +1,16 @@
+#pip install -r requirements.txt
+
+fastapi
+uvicorn
+pydantic
+qdrant-client
+ldap3
+python-multipart
+torch
+transformers
+sqlalchemy
+sentence-transformers
+PyPDF2
+ocrmypdf
+colorlog
+python-jose[cryptography]

@@ -1,0 +1,48 @@
+#searchResult-container {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 30px 50px 30px;
+  margin-top: 20px;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+
+.relevant-doc {
+  max-width: 100%;
+  margin-top: 20px;
+  padding: 40px 50px 20px 50px;
+  background-color: rgb(246, 246, 246);
+  border: 3px solid #76B900;
+}
+
+.docName-header {
+  font-size: 1.4rem;
+  margin-top: 0;
+  font-weight: bold;
+}
+
+.doc-relevant-paragraphs {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.seperator {
+  color: black;
+  border-bottom: 0;
+}
+
+.button-openfile {
+  border: 1px solid black;
+  text-decoration: none;
+  padding: 10px;
+  color: black;
+}
+
+.paragraphs:not(:first-child) {
+  margin-top: 20px;
+}
+
+.copy-icon:hover {
+  cursor: pointer;
+}
