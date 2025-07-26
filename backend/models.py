@@ -1,6 +1,6 @@
 from sqlalchemy import Column, DateTime, Float, Integer, String, Boolean, ForeignKey
 from sqlalchemy.orm import relationship
-from backend.database import Base
+from database import Base
 from datetime import datetime, timezone
 
 class User(Base):
@@ -16,6 +16,7 @@ class User(Base):
     user_id = Column(String, primary_key=True)
     is_admin = Column(Boolean)
     last_login = Column(DateTime, nullable=True)
+    used_storage = Column(Float, default=0.0) 
 
     def __repr__(self):
         return f"<User(user_id={self.user_id}, is_admin={self.is_admin})>"
