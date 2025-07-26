@@ -1,21 +1,22 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base, Session
-from fastapi import Depends
+import config
 from typing import Annotated
+from fastapi import Depends
 
+DATABASE_URL = config.database_url
 
-DATABASE_URL = "sqlite:///./userid_search_history_admin.db"
+print(f"Connecting to database at {DATABASE_URL}")
 
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)
 Base = declarative_base()
 
 def get_db():
-        db = SessionLocal()
-        try:
-            yield db
-        finally:
-            db.close()
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
-
-db_dependency = Annotated[Session, Depends(get_db)]
+DbSession = Annotated[Session, Depends(get_db)]
