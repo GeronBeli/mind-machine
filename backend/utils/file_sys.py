@@ -1,3 +1,8 @@
+"""
+Filesystem handler for managing user documents in a directory structure.
+
+Author: Moritz Köhler, Aykut Tanriverdi
+"""
 import os
 import config
 import ocrmypdf
@@ -14,7 +19,6 @@ class FileSystemHandler:
         document_directory (str): The directory where the documents are stored.
         file_extension (str): The file extension of the documents.
         qdClient (qdClient): The qdClient object used for interacting with the QD system.
-        logger (Logger): The logger object used for logging.
     """
 
     def __init__(self, qdClient):

@@ -5,7 +5,7 @@ Author: Abdelrahman Elsharkawi
 Creation Date: 11.11.2023
 """
 import PyPDF2
-from .doc_vec import DocVec
+from doc_vec import DocVec
 import logging
 
 def split_string_to_chunks(input_string, chunk_length, overlap):

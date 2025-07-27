@@ -8,7 +8,7 @@ from qdrant_client import QdrantClient, models
 from qdrant_client.http.models import Filter, FieldCondition, MatchValue
 from sentence_transformers import SentenceTransformer
 from transformers import pipeline
-from fileSystemHandler import FileSystemHandler
+from utils.file_sys import FileSystemHandler
 import os
 import config
 import logging
