@@ -11,6 +11,7 @@ class User(Base):
         user_id (str): The unique identifier of the user.
         is_admin (bool): Indicates whether the user is an admin or not.
         last_login (datetime): The timestamp of the user's last login.
+        used_storage (float): The amount of storage used by the user in MB or any other unit.
     """
     __tablename__ = 'Users'
     user_id = Column(String, primary_key=True)
