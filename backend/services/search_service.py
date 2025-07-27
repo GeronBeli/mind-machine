@@ -26,7 +26,7 @@ def get_searches_list(db: DbSession, user_id: str) -> List[SearchHistory]:
         return []
 
 
-def get_searches_since(db: DbSession, since: datetime) -> int:
+def get_searches_since_count(db: DbSession, since: datetime) -> int:
     """
     Get the count of searches made since a given timestamp.
     
@@ -37,8 +37,7 @@ def get_searches_since(db: DbSession, since: datetime) -> int:
         The count of searches since the given timestamp
     """
     try:
-        count = db.query(SearchHistory).filter(SearchHistory.timestamp >= since).order_by(SearchHistory.timestamp.desc())\
-            .all()
+        count = db.query(SearchHistory).filter(SearchHistory.timestamp >= since).count()
         logging.info(f"Counted {count} searches since {since}")
         return count
     except Exception as e:

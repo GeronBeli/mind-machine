@@ -3,9 +3,10 @@ from dependencies import fs_dependency, user_dependency
 from fastapi import APIRouter, HTTPException, status
 from services.admin_settings_service import get_settings, update_settings
 from services.user_service import get_active_users_count, get_all_users
-from services.search_service import get_searches_since
+from services.search_service import get_searches_since_count
 import logging
 from database import DbSession
+from datetime import datetime
 
 admin_router = APIRouter(tags=['admin'])
 
@@ -84,11 +85,11 @@ async def set_auto_logout(db: DbSession, admin: user_dependency, logout_timer: f
     update_settings(db, logout_timer=logout_timer)
     return True
 
-# @admin_router.get("/getnumberofaskedquestions", status_code=status.HTTP_200_OK)
-# async def get_number_of_asked_questions(db: DbSession, admin: user_dependency):
-#     check_admin_authorization(admin)
-#     number_of_questions = get_searches_since(db)
-#     return {"number_of_questions": number_of_questions}
+@admin_router.get("/getnumberofaskedquestions", status_code=status.HTTP_200_OK)
+async def get_number_of_asked_questions(db: DbSession, admin: user_dependency):
+    check_admin_authorization(admin)
+    number_of_questions = get_searches_since_count(db, datetime(2020, 1, 1))
+    return {"number_of_questions": number_of_questions}
 
 
 # @admin_router.get("/logfile", status_code=status.HTTP_200_OK)
