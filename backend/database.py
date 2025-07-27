@@ -3,11 +3,14 @@ from sqlalchemy.orm import sessionmaker, declarative_base, Session
 import config
 from typing import Annotated
 from fastapi import Depends
+import os
+
 
 DATABASE_URL = config.database_url
 
-print(f"Connecting to database at {DATABASE_URL}")
-
+if not os.path.exists(config.data_directory):
+    os.makedirs(config.data_directory)
+    
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)
 Base = declarative_base()
