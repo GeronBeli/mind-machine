@@ -58,7 +58,6 @@ Their teamwork and expertise were essential to the success of this project.
 
 # 4. Licence and Copyright
 
-© 2023 SOFTENG MemoryMachine. 
 
 ```
 Licensed under the Apache License, Version 2.0 (the "License");
